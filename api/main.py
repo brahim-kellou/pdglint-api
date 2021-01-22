@@ -2,7 +2,6 @@ import requests
 import json
 
 from fastapi import Request, FastAPI
-
 from config import PDGLINT_MODEL_ENDPOINT_SCORE
 from services import get_stats
 
@@ -23,6 +22,6 @@ async def get_score(request: Request):
         headers=headers,
         data=json.dumps({"data": [stats]})
     )
-    resp = json.loads(resp.json())
+    resp_json = json.loads(resp.json())
 
-    return resp
+    return resp_json
