@@ -2,17 +2,19 @@ import requests
 import json
 
 from fastapi import Request, FastAPI
-from config import PDGLINT_MODEL_ENDPOINT_SCORE
+from config import PDGLINT_MODEL_ENDPOINT
 from services import get_stats
 
-url = PDGLINT_MODEL_ENDPOINT_SCORE
+url = PDGLINT_MODEL_ENDPOINT
 headers = {'Content-type': 'application/json'}
 
 app = FastAPI()
 
 @app.get("/")
 def hello_pdglint():
-    return "Hello from PDglint"
+    return {
+        'Hello': 'From PDglint!'
+    }
 
 @app.post("/score/")
 async def get_score(request: Request):
@@ -28,4 +30,3 @@ async def get_score(request: Request):
     resp_json = json.loads(resp.json())
 
     return resp_json
-
