@@ -32,7 +32,7 @@ def hello_pdglint():
         'Hello': 'From PDglint!'
     }
 
-@app.post("/score/")
+@app.post("/")
 async def get_score(request: Request):
     body = await request.body()
     data = json.loads(body)
