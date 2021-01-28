@@ -1,1 +1,1 @@
-uvicorn --app-dir ./api main:app
+gunicorn --app-dir main:app -w 4 -k uvicorn.workers.UvicornWorker
