@@ -1,1 +1,1 @@
-gunicorn --app-dir main:app -w 4 -k uvicorn.workers.UvicornWorker
+python -m uvicorn --app-dir main:app --host 0.0.0.0
