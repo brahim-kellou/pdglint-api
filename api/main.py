@@ -37,8 +37,9 @@ def hello_pdglint():
 
 @app.post("/")
 async def get_score(request: Request):
-    # body = await request.body()
-    # data = json.loads(body)
+    body = await request.body()
+    data = json.loads(body)
+    print(data)
     # stats = get_stats(data)
 
     # resp = requests.post(
@@ -49,6 +50,7 @@ async def get_score(request: Request):
     # resp_json = json.loads(resp.json())
 
     # return resp_json
+
     return {
         'Method': 'POST',
         'Hello': 'From PDglint!'
