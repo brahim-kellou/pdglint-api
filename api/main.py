@@ -12,8 +12,8 @@ headers = {'Content-type': 'application/json'}
 app = FastAPI()
 
 origins = [
-    "http://pdglint.azurewebsites.net",
-    "https://pdglint.azurewebsites.net",
+    "http://pdglint-app.azurewebsites.net",
+    "https://pdglint-app.azurewebsites.net",
     "http://localhost",
     "http://localhost:3000",
 ]
@@ -26,11 +26,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 def hello_pdglint():
     return {
         'Hello': 'From PDglint!'
     }
+
 
 @app.post("/")
 async def get_score(request: Request):
