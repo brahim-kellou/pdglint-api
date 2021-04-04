@@ -30,21 +30,26 @@ app.add_middleware(
 @app.get("/")
 def hello_pdglint():
     return {
+        'Method': 'GET',
         'Hello': 'From PDglint!'
     }
 
 
 @app.post("/")
 async def get_score(request: Request):
-    body = await request.body()
-    data = json.loads(body)
-    stats = get_stats(data)
+    # body = await request.body()
+    # data = json.loads(body)
+    # stats = get_stats(data)
 
-    resp = requests.post(
-        url,
-        headers=headers,
-        data=json.dumps({"data": [stats]})
-    )
-    resp_json = json.loads(resp.json())
+    # resp = requests.post(
+    #     url,
+    #     headers=headers,
+    #     data=json.dumps({"data": [stats]})
+    # )
+    # resp_json = json.loads(resp.json())
 
-    return resp_json
+    # return resp_json
+    return {
+        'Method': 'POST',
+        'Hello': 'From PDglint!'
+    }
