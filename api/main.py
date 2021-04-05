@@ -39,15 +39,16 @@ def hello_pdglint():
 async def get_score(request: Request):
     body = await request.body()
     data = json.loads(body)
-    print(data)
-    # stats = get_stats(data)
 
-    # resp = requests.post(
-    #     url,
-    #     headers=headers,
-    #     data=json.dumps({"data": [stats]})
-    # )
-    # resp_json = json.loads(resp.json())
+    stats = get_stats(data)
+
+    resp = requests.post(
+        url,
+        headers=headers,
+        data=json.dumps({"data": [stats]})
+    )
+    resp_json = json.loads(resp.json())
+    print(resp_json)
 
     # return resp_json
 
