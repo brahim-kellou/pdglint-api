@@ -50,9 +50,4 @@ async def get_score(request: Request):
     resp_json = json.loads(resp.json())
     print(resp_json)
 
-    # return resp_json
-
-    return {
-        'Method': 'POST',
-        'Hello': 'From PDglint!'
-    }
+    return resp_json
