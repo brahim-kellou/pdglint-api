@@ -48,6 +48,5 @@ async def get_score(request: Request):
         data=json.dumps({"data": [stats]})
     )
     resp_json = json.loads(resp.json())
-    print(resp_json)
 
     return resp_json
